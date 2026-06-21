@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mlb · 再次遇见 | zhcn-mlb.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            background-color: #f2f4f6;
+            color: #2d3a45;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3.5rem 2.5rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid #e9edf0;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1f2a36;
+            margin-bottom: 0.75rem;
+        }
+        .hero h1 span {
+            background: #dce3e9;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-weight: 400;
+            font-size: 1.2rem;
+            vertical-align: middle;
+            margin-left: 0.3rem;
+            color: #2d3a45;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #4d5b69;
+            max-width: 640px;
+            margin: 0.8rem auto 1.4rem;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #eef2f5;
+            padding: 0.35rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #3a4a58;
+            border: 1px solid #d8e0e6;
+        }
+
+        /* 通用卡片 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 1.6rem;
+            border: 1px solid #e5eaee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.7rem;
+            color: #1f2a36;
+        }
+        .card p {
+            font-size: 0.98rem;
+            color: #3f4e5c;
+        }
+        .card .icon-place {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* 说明区 (longer) */
+        .explain {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2.5rem;
+            border: 1px solid #e5eaee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            margin-bottom: 2.5rem;
+        }
+        .explain h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #1f2a36;
+        }
+        .explain p {
+            margin-bottom: 1rem;
+            color: #3a4a58;
+        }
+        .explain a {
+            color: #1f2a36;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.15s;
+        }
+        .explain a:hover {
+            color: #4d6f8c;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
+            border: 1px solid #e5eaee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            margin-bottom: 2.5rem;
+        }
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #1f2a36;
+        }
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #edf1f4;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            color: #2d3c49;
+        }
+        .faq-item p {
+            font-size: 0.94rem;
+            color: #4d5b69;
+            margin: 0;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            text-align: center;
+            padding: 1.8rem 0 0.5rem;
+            border-top: 1px solid #dde3e8;
+            font-size: 0.95rem;
+            color: #506070;
+        }
+        .footer-links a {
+            color: #2d3a45;
+            text-decoration: none;
+            border-bottom: 1px dotted #b5c2ce;
+            transition: border-bottom 0.15s;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #2d3a45;
+        }
+        .footer-links .sep {
+            margin: 0 0.6rem;
+            color: #b2bfcb;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero {
+                padding: 2.2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .explain, .faq-summary {
+                padding: 1.6rem 1.3rem;
+            }
+            .card-grid {
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Hero 区 -->
+    <div class="hero">
+        <h1>
+            mlb
+            <span>⚾</span>
+        </h1>
+        <p>一个你曾经收藏、后来想起、又想再回来的站点。<br>不用书签，不用搜索，它一直在。</p>
+        <div class="tagline">再次访问 · 持续关注 · 值得停留</div>
+    </div>
+
+    <!-- 优势区 卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="icon-place">📌</div>
+            <h3>记得住的名字</h3>
+            <p>干净简短的地址，像老朋友一样好记。下次再找 mlb 相关内容，不用翻历史记录。</p>
+        </div>
+        <div class="card">
+            <div class="icon-place">🔄</div>
+            <h3>常看常新</h3>
+            <p>内容持续更新，每次打开都可能发现新视角。适合放在收藏夹里，偶尔回来看看。</p>
+        </div>
+        <div class="card">
+            <div class="icon-place">🔒</div>
+            <h3>稳定省心</h3>
+            <p>没有花哨的跳转，没有多余的干扰。页面轻量、稳定，适合日常浏览与回顾。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：从再次访问、收藏和持续关注的角度展开 -->
+    <div class="explain">
+        <h2>从收藏到回访</h2>
+        <p>
+            很多网站第一次访问觉得不错，但转头就忘了。而 <a href="https://zhcn-mlb.com">mlb</a> 
+            这个站点，设计初衷就是让人愿意 <strong>再回来</strong>。它不追求让你一次看完所有内容，
+            而是希望你能像路过一个安静的社区一样，时不时进来坐坐，看看有没有新东西。
+        </p>
+        <p>
+            如果你之前收藏过它，这次回来会发现页面结构依然熟悉，但细节和表达已经悄悄迭代了。
+            持续关注的价值就在于此——你不用刻意记住更新节奏，只要记得那个地址：
+            <a href="https://zhcn-mlb.com">mlb</a> 就行。它不打扰你，但等你来。
+        </p>
+        <p>
+            对很多人来说，<strong>mlb</strong> 三个字母代表一种兴趣的锚点。
+            无论是数据、资讯还是纯粹的爱好，这个站点都保持着一贯的克制和真诚。
+            下次再想看看相关内容，不妨从收藏夹里把它点开，或者直接在浏览器输入 
+            <a href="https://zhcn-mlb.com">mlb</a>。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见疑问 · 简短回答</h2>
+        <div class="faq-item">
+            <strong>这个站点更新频繁吗？</strong>
+            <p>不定期更新，但每次更新都会带来内容或结构上的变化，不会长时间停滞。</p>
+        </div>
+        <div class="faq-item">
+            <strong>需要注册或登录才能用吗？</strong>
+            <p>完全不用。打开即用，也没有弹窗或强制关注，干干净净。</p>
+        </div>
+        <div class="faq-item">
+            <strong>我忘了之前看到的内容怎么办？</strong>
+            <p>直接回到 <a href="https://zhcn-mlb.com">mlb</a>，新内容会自然衔接，旧印象也可能以另一种方式出现。</p>
+        </div>
+        <div class="faq-item">
+            <strong>适合推荐给朋友吗？</strong>
+            <p>如果你觉得朋友会对 mlb 相关话题感兴趣，把地址发过去就好，不用多余解释。</p>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <a href="https://zhcn-mlb.com">mlb</a>
+        <span class="sep">·</span>
+        <span>再次遇见</span>
+        <span class="sep">·</span>
+        <span>持续关注</span>
+    </div>
+
+</div>
+</body>
+</html>
